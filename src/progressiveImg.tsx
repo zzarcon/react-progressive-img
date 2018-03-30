@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Component} from 'react';
+import {Component, ReactNode} from 'react';
 import {svg, placeholderWrapper, imgStyles, placeholderChild} from './styles';
 import {fetchImg} from './fetcher'
 import { Dimensions } from './types';
@@ -7,7 +7,7 @@ import { Dimensions } from './types';
 export interface ProgressiveImgProps {
   src: string;
   dimensions?: Dimensions;
-  children?: () => void;
+  children?: (status: FetchingState, percentage: number, src: string) => ReactNode;
 }
 
 export type FetchingState = 'loading' | 'complete' | 'error';
@@ -53,16 +53,21 @@ export class ProgressiveImg extends Component<ProgressiveImgProps, ProgressiveIm
   get isLoading() {
     return this.state.fetchingState === 'loading'
   }
+
+  get percentage() {
+    const {progress, total} = this.state;
+
+    return !total ? 0 : Math.round((progress * 100) / total);
+  }
   
   get placeholder() {
+    const {percentage} = this;
     const {dimensions} = this.props;
-    const {progress, total} = this.state;
-    const percentage = -100 + (!total ? 0 : Math.round((progress * 100) / total));
-    
+
     return (
       <div style={placeholderWrapper(dimensions)}>
         {svg}
-        <div style={placeholderChild(percentage)}>
+        <div style={placeholderChild(-100 + percentage)}>
           
         </div>
       </div>
@@ -79,8 +84,11 @@ export class ProgressiveImg extends Component<ProgressiveImgProps, ProgressiveIm
   }
 
   render() {
+    const {percentage} = this;
+    const {children} = this.props;
+    const {fetchingState, progress, total, responseSrc} = this.state;
     const {isLoading} = this;
-    const content = isLoading ? this.placeholder : this.img;
+    const content = children ? children(fetchingState, percentage, responseSrc) : isLoading ? this.placeholder : this.img;
 
     return (
       content

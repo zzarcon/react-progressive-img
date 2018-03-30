@@ -1,7 +1,7 @@
 import { OnProgressFunc } from "./types";
 
-export const fetchImg = (src: string, onProgress: OnProgressFunc): Promise<string> => {
-  return new Promise((resolve, reject) => {
+export const fetchImg = (src: string, onProgress: OnProgressFunc): Promise<string> => (
+  new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest();
 
     xhr.open('GET', src, true);
@@ -17,5 +17,5 @@ export const fetchImg = (src: string, onProgress: OnProgressFunc): Promise<strin
     };
     xhr.onerror = reject;
     xhr.send();
-  });
-}
+  })
+)

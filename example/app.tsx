@@ -22,7 +22,40 @@ export default class App extends Component <{}, AppState> {
     // TODO: allow edit imageSrc
     return (
       <div>
-        <ProgressiveImg src={imageSrc} dimensions={dimensions} />
+        <div>
+          <h1>Default</h1>
+          <ProgressiveImg src={imageSrc} dimensions={dimensions} />
+        </div>
+        <div>
+          <h1>Custom Basic</h1>
+          <ProgressiveImg src={imageSrc} dimensions={dimensions} >
+            {(state, percentage, src) => {
+              if (state === 'error') {
+                return <div>Error</div>;
+              } else if (state === 'complete') {
+                return <img style={{height: 300}} src={src} />;
+              } else {
+                return <div>Loading {percentage}%</div>;
+              }
+            }}
+          </ProgressiveImg>
+        </div>
+        <div>
+          <h1>Custom Circle</h1>
+          <ProgressiveImg src={imageSrc} dimensions={dimensions} >
+            {(state, percentage, src) => {
+              if (state === 'error') {
+                return <div>Error</div>;
+              } else if (state === 'complete') {
+                return <img style={{height: 300}} src={src} />;
+              } else {
+                return (
+                  <div></div>                 
+                );
+              }
+            }}
+          </ProgressiveImg>
+        </div>
       </div>
     )
   }
