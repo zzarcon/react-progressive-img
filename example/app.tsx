@@ -6,7 +6,8 @@ export interface AppState {
   imageSrc: string; 
 }
 
-const defaultImageSrc = 'https://upload.wikimedia.org/wikipedia/commons/d/dd/Big_%26_Small_Pumkins.JPG';
+// const defaultImageSrc = 'https://upload.wikimedia.org/wikipedia/commons/d/dd/Big_%26_Small_Pumkins.JPG';
+const defaultImageSrc = 'https://iso.500px.com/wp-content/uploads/2014/07/big-one.jpg';
 
 export default class App extends Component <{}, AppState> {
   state: AppState = {
