@@ -6,7 +6,7 @@
   "devDependencies": {
     "react-circle": "^0.0.4",
     "styled-components": "^3.2.5",
-    "ts-react-toolbox": "^0.0.34"
+    "ts-react-toolbox": "^0.0.35"
   },
   "engines": {
     "node": "^8.5.0"
@@ -17,8 +17,7 @@
     "test": "ts-react-toolbox test",
     "test:ci": "ts-react-toolbox test --runInBand --coverage",
     "build": "ts-react-toolbox build",
-    "release": "ts-react-toolbox release",
-    "prepublishOnly": "yarn test:ci && yarn build"
+    "release": "ts-react-toolbox release"
   },
   "peerDependencies": {
     "react": "^16.2.0"
