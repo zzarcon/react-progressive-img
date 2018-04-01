@@ -4,7 +4,6 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "devDependencies": {
-    "ts-react-toolbox": "^0.0.25",
     "react-circle": "^0.0.4",
     "styled-components": "^3.2.5"
   },
@@ -17,10 +16,13 @@
     "test": "ts-react-toolbox test",
     "test:ci": "ts-react-toolbox test --runInBand --coverage",
     "build": "ts-react-toolbox build",
-    "release": "npm version patch && git push --tags && git push && npm publish",
+    "release": "ts-react-toolbox release",
     "prepublishOnly": "yarn test:ci && yarn build"
   },
   "peerDependencies": {
     "react": "^16.2.0"
+  },
+  "dependencies": {
+    "ts-react-toolbox": "^0.0.26"
   }
 }
