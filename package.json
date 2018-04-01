@@ -1,8 +1,12 @@
 {
+  "name": "react-progressive-img",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "devDependencies": {
-    "add": "^2.0.6",
-    "ts-react-toolbox": "^0.0.23",
-    "yarn": "^1.5.1"
+    "react-circle": "^0.0.4",
+    "styled-components": "^3.2.5",
+    "ts-react-toolbox": "^0.0.23"
   },
   "engines": {
     "node": "^8.5.0"

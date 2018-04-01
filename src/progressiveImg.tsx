@@ -51,7 +51,7 @@ export class ProgressiveImg extends Component<ProgressiveImgProps, ProgressiveIm
   }
 
   get isLoading() {
-    return this.state.fetchingState === 'loading'
+    return this.state.fetchingState === 'loading';
   }
 
   get percentage() {
@@ -90,6 +90,7 @@ export class ProgressiveImg extends Component<ProgressiveImgProps, ProgressiveIm
     const {isLoading} = this;
     const content = children ? children(fetchingState, percentage, responseSrc) : isLoading ? this.placeholder : this.img;
 
+    // TODO: render error placeholder
     return (
       content
     );

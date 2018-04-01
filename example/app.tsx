@@ -1,7 +1,8 @@
 import * as React from 'react';
 import {Component} from 'react';
+import Circle from 'react-circle';
 import ProgressiveImg from '../src';
-
+import {AppWrapper, CircleWrapper, CustomImg, ExampleWrapper} from './styled';
 export interface AppState {
   imageSrc: string; 
 }
@@ -21,42 +22,54 @@ export default class App extends Component <{}, AppState> {
     // TODO: allow edit dimensions
     // TODO: allow edit imageSrc
     return (
-      <div>
-        <div>
+      <AppWrapper>
+        <ExampleWrapper>
           <h1>Default</h1>
           <ProgressiveImg src={imageSrc} dimensions={dimensions} />
-        </div>
-        <div>
-          <h1>Custom Basic</h1>
+        </ExampleWrapper>
+        <ExampleWrapper>
+          <h1>Circle</h1>
           <ProgressiveImg src={imageSrc} dimensions={dimensions} >
             {(state, percentage, src) => {
+              let content;
+
               if (state === 'error') {
-                return <div>Error</div>;
+                content = <div>Error</div>;
               } else if (state === 'complete') {
-                return <img style={{height: 300}} src={src} />;
+                content = <CustomImg src={src} />;
               } else {
-                return <div>Loading {percentage}%</div>;
-              }
-            }}
-          </ProgressiveImg>
-        </div>
-        <div>
-          <h1>Custom Circle</h1>
-          <ProgressiveImg src={imageSrc} dimensions={dimensions} >
-            {(state, percentage, src) => {
-              if (state === 'error') {
-                return <div>Error</div>;
-              } else if (state === 'complete') {
-                return <img style={{height: 300}} src={src} />;
-              } else {
-                return (
-                  <div></div>                 
+                content = (
+                  <Circle
+                    size={'50'}
+                    progress={percentage}
+                    showPercentage={false}
+                  />
                 );
               }
+
+              return (
+                <CircleWrapper>
+                  {content}
+                </CircleWrapper>
+              )
             }}
           </ProgressiveImg>
-        </div>
-      </div>
+        </ExampleWrapper>
+        <ExampleWrapper>
+          <h1>Boring</h1>
+          <ProgressiveImg src={imageSrc} dimensions={dimensions} >
+            {(state, percentage, src) => {
+              if (state === 'error') {
+                return <div>Error</div>;
+              } else if (state === 'complete') {
+                return <img style={{height: 150}} src={src} />;
+              } else {
+                return <div style={{height: 150}}>Loading {percentage}%</div>;
+              }
+            }}
+          </ProgressiveImg>
+        </ExampleWrapper>
+      </AppWrapper>
     )
   }
 }
