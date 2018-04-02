@@ -1,6 +1,11 @@
 # react-progressive-img [![Build Status](https://travis-ci.org/zzarcon/react-progressive-img.svg?branch=master)](https://travis-ci.org/zzarcon/react-progressive-img)
 > Progressive image rendering made easy
 
+# Demo
+[https://zzarcon.github.io/react-progressive-img](https://zzarcon.github.io/react-progressive-img)
+<p align="center">
+  <img src="demo.gif" width="800">
+</p>
 # Install
 
 ```
