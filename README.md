@@ -1,4 +1,4 @@
-# react-progressive-img
+# react-progressive-img [![Build Status](https://travis-ci.org/zzarcon/react-progressive-img.svg?branch=master)](https://travis-ci.org/zzarcon/react-progressive-img)
 > Progressive image rendering made easy
 
 # Install
