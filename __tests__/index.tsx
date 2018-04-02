@@ -15,7 +15,7 @@ describe('ProgressiveImg', () => {
     const options = {...defaultOptions, ...userOptions}
     const {fetchImgMock} = options;
 
-    fetchImg = fetchImgMock;
+    (fetchImg as any) = fetchImgMock;
     
     const component = shallow(<ProgressiveImg src={src} {...options.props} />);
 
@@ -83,7 +83,7 @@ describe('ProgressiveImg', () => {
     it('should pass responseSrc when the fetching is done', async () => {
       const fetchPromise = Promise.resolve('remote-src');
       const fetchImgMock = jest.fn().mockReturnValue(fetchPromise);
-      fetchImg = fetchImgMock;
+      (fetchImg as any) = fetchImgMock;
       const rendererFunc = jest.fn();
       const component = shallow(
         <ProgressiveImg src="img-src">
@@ -104,7 +104,7 @@ describe('ProgressiveImg', () => {
 
         return fetchPromise;
       });
-      fetchImg = fetchImgMock;
+      (fetchImg as any) = fetchImgMock;
       const rendererFunc = jest.fn();
       const component = shallow(
         <ProgressiveImg src="img-src">
