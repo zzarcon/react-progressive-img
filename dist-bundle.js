@@ -91,7 +91,7 @@ eval("\nvar __extends = (this && this.__extends) || (function () {\n    var exte
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\nvar ReactDOM = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\nvar app_1 = __webpack_require__(/*! ./app */ \"./example/app.tsx\");\nReactDOM.render(React.createElement(app_1.default, null), document.getElementById('app'));\n\n\n//# sourceURL=webpack:///./example/index.tsx?");
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\nvar ReactDOM = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\nvar app_1 = __webpack_require__(/*! ./app */ \"./example/app.tsx\");\nconsole.log(12);\nReactDOM.render(React.createElement(app_1.default, null), document.getElementById('app'));\n\n\n//# sourceURL=webpack:///./example/index.tsx?");
 
 /***/ }),
 
